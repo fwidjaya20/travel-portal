@@ -79,10 +79,10 @@
         <div class="container">
             <div class="banner-content d-flex flex-column align-items-start">
                 <h2 class="banner-title mb-4">
-                    Insert Ticket
+                    Transactions
                 </h2>
                 <span class="banner-description">
-                    Insert new ticket for airlines
+                    On Progress Transaction
                 </span>
             </div>
         </div>
@@ -94,70 +94,54 @@
         <div>
             <div class="box banner-box" style="padding: 50px 75px">
                 <div>
-                    <form class="box-form">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="airline">Airline</label>
-                                    <select id="airline" class="form-control">
-                                        <option value="-"> - </option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6 col-sm-12">
-                                <div class="form-group">
-                                    <label for="from">From</label>
-                                    <select id="from" class="form-control">
-                                        <option value="-"> - </option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <div class="form-group">
-                                    <label for="to">To</label>
-                                    <select id="to" class="form-control">
-                                        <option value="-"> - </option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mt-2">
-                            <div class="col-md-6 col-sm-12">
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-12">
-                                        <div class="form-group">
-                                            <label for="price_economy">Price Economy (Rp.)</label>
-                                            <input type="number" id="price_economy" class="form-control" value="0">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-12">
-                                        <div class="form-group">
-                                            <label for="price_business">Price Business (Rp.)</label>
-                                            <input type="number" id="price_business" class="form-control" value="0">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                                <div class="form-group">
-                                    <label for="available_seat">Available Seat</label>
-                                    <input type="number" id="available_seat" class="form-control" value="0">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-12 text-right">
-                                <button class="btn btn-portal-primary">
-                                    Add Ticket
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    <div class="box-form">
+                        <table class="table table-hover table-light">
+                            <thead>
+                            <tr>
+                                <th> Invoice Number </th>
+                                <th> Date </th>
+                                <th> Buyer </th>
+                                <th> Status </th>
+                                <th style="width: 25%"> Action </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td> @mdo </td>
+                                <td> @mdo </td>
+                                <td> @mdo </td>
+                                <td> <span class="badge badge-success"> Approved </span> </td>
+                                <td>
+                                    <a href="transaction-detail.html" class="btn btn-info btn-sm"> View </a>
+                                    <a href="transaction-update.html" class="btn btn-primary btn-sm"> Edit </a>
+                                    <a href="transaction-delete.html" class="btn btn-danger btn-sm"> Delete </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> @mdo </td>
+                                <td> @mdo </td>
+                                <td> @mdo </td>
+                                <td> <span class="badge badge-warning"> Pending </span> </td>
+                                <td>
+                                    <a href="transaction-detail.html" class="btn btn-info btn-sm"> View </a>
+                                    <a href="transaction-update.html" class="btn btn-primary btn-sm"> Edit </a>
+                                    <a href="transaction-delete.html" class="btn btn-danger btn-sm"> Delete </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> @mdo </td>
+                                <td> @mdo </td>
+                                <td> @mdo </td>
+                                <td> <span class="badge badge-danger"> Rejected </span> </td>
+                                <td>
+                                    <a href="transaction-detail.html" class="btn btn-info btn-sm"> View </a>
+                                    <a href="transaction-update.html" class="btn btn-primary btn-sm"> Edit </a>
+                                    <a href="transaction-delete.html" class="btn btn-danger btn-sm"> Delete </a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

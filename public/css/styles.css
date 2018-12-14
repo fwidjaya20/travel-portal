@@ -79,6 +79,25 @@ body {
     margin-top: -45px !important;
 }
 
+.ticket-card {
+    position: relative;
+    background-color: var(--color-white);
+    width: 100%;
+    border: 0;
+    border-radius: var(--box-radius);
+    padding: 10px 30px;
+    box-shadow: var(--box-shadow);
+}
+
+.ticket-card > .card-item {
+    display: flex;
+    flex-direction: row;
+}
+
+.ticket-card > .card-item div {
+    padding: 0;
+}
+
 .travel-portal-services .service-item {
     margin-left: 5px;
 }
@@ -132,6 +151,18 @@ body {
 
 .has-dropmenu:hover .dropdown {
     display: block;
+}
+
+.circle-badge {
+    background-color: var(--primary-color);
+    display: block;
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    border: 0px;
+    border-radius: var(--box-full-radius);
+    color: #fff;
+    text-align: center;
 }
 
 /* Override HTML Default Styles */
@@ -202,4 +233,9 @@ input.form-control,
 select.form-control {
     background-color: var(--input-background-color);
     height: 44px;
+}
+
+input:focus.form-control,
+select:focus.form-control {
+    background-color: var(--input-background-color);
 }
