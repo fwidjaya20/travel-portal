@@ -27,6 +27,8 @@ body {
     --box-radius: 5px;
     --box-full-radius: 100%;
     --box-shadow: 0 8px 25px 0 rgba(0, 0, 0, 0.06);
+
+    --input-background-color: rgba(0, 0, 0, .1);
 }
 
 .template-header {
@@ -61,20 +63,8 @@ body {
     padding: 0 !important;
 }
 
-.banner {
-    position: relative;
-    background-color: var(--primary-color);
-    color: #fff !important;
-    min-height: 400px;
-}
-
-.banner .banner-content {
-    min-height: 350px;
-    padding: 60px 0;
-    padding-bottom: 100px !important;
-}
-
-.box {
+.box,
+.landing {
     position: relative;
     background-color: var(--color-white);
     width: 100%;
@@ -84,7 +74,8 @@ body {
     box-shadow: var(--box-shadow);
 }
 
-.box.banner-box {
+.box.banner-box,
+.landing.landing-box {
     margin-top: -45px !important;
 }
 
@@ -120,6 +111,27 @@ body {
     right: 3px;
     border: 0;
     border-radius: var(--box-full-radius);
+}
+
+.banner-title {
+    font-weight: 500;
+}
+
+.banner-subtitle,
+.banner-description {
+    font-size: 18px;
+}
+
+.banner-subtitle {
+    word-spacing: 3px;
+}
+
+.banner-description {
+    word-spacing: 5px;
+}
+
+.has-dropmenu:hover .dropdown {
+    display: block;
 }
 
 /* Override HTML Default Styles */
@@ -171,11 +183,23 @@ a:hover {
 }
 
 .form-group > label {
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+}
+
+.dropdown {
+    position: absolute;
+    z-index: 1;
+    background-color: var(--white);
+    border: 0;
+    box-shadow: var(--box-shadow);
+    left: 0;
+    padding: 0;
+    display: none;
 }
 
 input.form-control,
 select.form-control {
+    background-color: var(--input-background-color);
     height: 44px;
 }

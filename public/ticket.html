@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Travel Portal </title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/web-template.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500" rel="stylesheet">
+</head>
+<body id="root">
+<header class="template-header">
+    <section class="header-top-bar">
+        <div class="container d-flex">
+            <span class="text-light mr-auto">
+                <ul class="nav-items">
+                    <li class="nav-item position-relative mr-2 has-dropmenu">
+                        <a href="user.html" class="text-light"> Users </a>
+
+                        <ul class="dropdown">
+                            <li class="dropdown-item">
+                                <a href="user-insert.html" class="text-dark"> Insert User </a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="user-update.html" class="text-dark"> Update User </a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="javascript:;" class="text-dark"> Delete User </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item position-relative mr-2 has-dropmenu">
+                        <a href="city.html" class="text-light"> Cities </a>
+
+                        <ul class="dropdown">
+                            <li class="dropdown-item">
+                                <a href="city-insert.html" class="text-dark"> Insert City </a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="city-update.html" class="text-dark"> Update City </a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="javascript:;" class="text-dark"> Delete City </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item position-relative mr-2 has-dropmenu">
+                        <a href="ticket.html" class="text-light"> Tickets </a>
+
+                        <ul class="dropdown">
+                            <li class="dropdown-item">
+                                <a href="ticket-insert.html" class="text-dark"> Insert Ticket </a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="ticket-update.html" class="text-dark"> Update Ticket </a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="javascript:;" class="text-dark"> Delete Ticket </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item position-relative mr-2 has-dropmenu">
+                        <a href="transaction.html" class="text-light"> Transactions </a>
+
+                        <ul class="dropdown">
+                            <li class="dropdown-item">
+                                <a href="transaction-insert.html" class="text-dark"> Insert Transaction </a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="transaction-update.html" class="text-dark"> Update Transaction </a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="javascript:;" class="text-dark"> Delete Transaction </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </span>
+            <ul class="nav-items">
+                <li class="nav-item position-relative has-dropmenu">
+                    <a href="login.html" class="nav-link text-light"> User Dummy </a>
+
+                    <ul class="dropdown">
+                        <li class="dropdown-item">
+                            <a href="profile.html" class="text-dark"> Edit Profile </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a href="logout.html" class="text-dark"> Logout </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="banner">
+        <div class="container">
+            <div class="banner-content d-flex flex-column align-items-start">
+                <h2 class="banner-title mb-4">
+                    Tickets
+                </h2>
+                <span class="banner-description">
+                    Ticket lists
+                </span>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div id="main">
+    <section class="container">
+        <div>
+            <div class="box banner-box" style="padding: 50px 75px">
+                <div>
+                    <div class="box-form">
+                        <table class="table table-hover table-light">
+                            <thead>
+                            <tr>
+                                <th rowspan="2"> Airline </th>
+                                <th rowspan="2"> From </th>
+                                <th rowspan="2"> To </th>
+                                <th colspan="2" class="text-center"> Price</th>
+                                <th rowspan="2"> Seat </th>
+                                <th rowspan="2" style="width: 17%"> Action </th>
+                            </tr>
+                            <tr>
+                                <th> Economy </th>
+                                <th> Business </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td> @mdo </td>
+                                <td> @mdo </td>
+                                <td> @mdo </td>
+                                <td> @mdo </td>
+                                <td> @mdo </td>
+                                <td> @mdo </td>
+                                <td>
+                                    <a href="ticket-update.html" class="btn btn-primary btn-sm"> Edit </a>
+                                    <a href="ticket-update.html" class="btn btn-danger btn-sm"> Delete </a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <span> Copyrights &copy; 2018 TravelPortal </span>
+</footer>
+
+<script src="./js/bootstrap.min.js"></script>
+</body>
+</html>

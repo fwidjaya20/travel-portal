@@ -1,0 +1,12 @@
+.banner {
+    position: relative;
+    background-color: var(--primary-color);
+    color: #fff !important;
+    min-height: 250px;
+}
+
+.banner .banner-content {
+    min-height: 250px;
+    padding: 60px 0;
+    padding-bottom: 100px !important;
+}

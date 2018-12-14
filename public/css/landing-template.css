@@ -1,0 +1,36 @@
+.banner {
+    position: relative;
+    background-color: var(--primary-color);
+    color: #fff !important;
+    min-height: 250px;
+}
+
+.banner-content {
+    height: 100%;
+}
+
+.banner-title {
+    font-weight: 500 !important;
+}
+
+.landing {
+    background-color: transparent;
+    width: 100%;
+    border: 0;
+    border-radius: 0px;
+    padding: 0;
+    box-shadow: none;
+}
+
+.landing-form {
+    background-color: var(--color-white);
+    width: 340px;
+    border: 0;
+    border-radius: var(--box-radius);
+    padding: 32px 24px;
+    box-shadow: var(--box-shadow);
+}
+
+.landing-form.landing-box {
+    margin-top: -45px !important;
+}

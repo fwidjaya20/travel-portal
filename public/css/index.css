@@ -3,20 +3,3 @@
     background-size: contain;
     background-repeat: no-repeat;
 }
-
-.index-banner-title {
-    font-weight: 500;
-}
-
-.index-brand-motto,
-.index-brand-description {
-    font-size: 18px;
-}
-
-.index-brand-motto {
-    word-spacing: 3px;
-}
-
-.index-brand-description {
-    word-spacing: 5px;
-}
