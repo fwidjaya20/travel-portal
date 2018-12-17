@@ -165,6 +165,11 @@ body {
     text-align: center;
 }
 
+.error {
+    font-size: 14px !important;
+    font-weight: 500;
+}
+
 /* Override HTML Default Styles */
 #main {
     flex: 1 0 auto;

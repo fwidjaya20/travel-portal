@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d404e4f0-2ee1-42d6-a146-44c92048f439" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/public/city-insert.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/city-insert.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/city-update.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/city-update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/city.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/city.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/purchase-pi.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/purchase-pi.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/ticket-insert.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/ticket-insert.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/ticket-search.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/ticket-search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/ticket-update.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/ticket-update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/ticket.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/ticket.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/transaction-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/transaction-detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/transaction-insert.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/transaction-insert.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/transaction-update.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/transaction-update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/transaction.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/transaction.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/user-insert.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/user-insert.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/user-update.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/user-update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/user.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/config/database/Connection.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,17 +44,55 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="1009054235">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="jsp" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JSP" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="jsp" value="53" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JSP" value="53" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
+            <state relative-caret-position="1529">
               <caret line="129" column="105" selection-start-line="129" selection-start-column="105" selection-end-line="129" selection-end-column="105" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/config/database/Connection.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="3" lean-forward="true" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -121,6 +144,7 @@
         <option value="$PROJECT_DIR$/public/user-insert.html" />
         <option value="$PROJECT_DIR$/public/user-update.html" />
         <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/public/config/database/Connection.jsp" />
       </list>
     </option>
   </component>
@@ -141,6 +165,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -153,11 +178,23 @@
               <item name="travel-portal" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="travel-portal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="travel-portal" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="travel-portal" type="b2602c69:ProjectViewProjectNode" />
+              <item name="travel-portal" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -200,17 +237,17 @@
       <workItem from="1544687403345" duration="6336000" />
       <workItem from="1544753648363" duration="5350000" />
       <workItem from="1544768509048" duration="9727000" />
+      <workItem from="1545020124703" duration="156000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22955000" />
+    <option name="totallyTimeSpent" value="23111000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2602118" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26399395" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -270,9 +307,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="41" column="30" lean-forward="true" selection-start-line="41" selection-start-column="30" selection-end-line="45" selection-end-column="30" />
-          <folding>
-            <element signature="e#2379#2385#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -329,10 +363,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -361,9 +391,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="407">
           <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -399,9 +426,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -409,19 +433,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1529">
+          <caret line="129" column="105" selection-start-line="129" selection-start-column="105" selection-end-line="129" selection-end-column="105" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
+    <entry file="file://$PROJECT_DIR$/public/config/database/Connection.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="129" column="105" selection-start-line="129" selection-start-column="105" selection-end-line="129" selection-end-column="105" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#section#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="1" column="3" lean-forward="true" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
         </state>
       </provider>
     </entry>
