@@ -1,5 +1,3 @@
-<%@ include file = "../../config/importer/Importer.jsp" %>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,16 +8,35 @@
     <title> Travel Portal </title>
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../public/css/styles.css">
-    <link rel="stylesheet" href="../../public/css/apps-template.css">
-    <link rel="stylesheet" href="../../public/css/index.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/apps-template.css">
+    <link rel="stylesheet" href="./css/index.css">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500" rel="stylesheet">
 </head>
 <body id="root">
-    <%@ include file = "./commons/components/templates/header-web.jsp" %>
+    <header class="template-header">
+        <section class="header-top-bar">
+            <div class="container d-flex justify-content-between">
+                <span class="text-light"> The easiest way to find the cheapest ticket. </span>
+                <ul class="nav-items">
+                    <li class="nav-item">
+                        <a href="transaction.html" class="nav-link text-light"> Dashboard </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="track-order.html" class="nav-link text-light"> Track Order </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="login.html" class="nav-link text-light"> Sign In </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="register.html" class="nav-link text-light"> Register </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
         <section class="banner">
             <div class="container">
                 <div class="banner-content d-flex flex-column align-items-center">
@@ -48,7 +65,7 @@
                         <ul class="travel-portal-services">
                             <li class="service-item">
                                 <button class="btn btn-service active">
-                                    <img src="../../public/assets/icons/service-plane.svg" alt="">
+                                    <img src="assets/icons/service-plane.svg" alt="">
                                 </button>
                             </li>
                         </ul>
@@ -110,7 +127,7 @@
 
                             <div class="row">
                                 <div class="col-12 text-right">
-                                    <a href="ticket-search.jsp" class="btn btn-portal-primary text-light">
+                                    <a href="ticket-search.html" class="btn btn-portal-primary text-light">
                                         Search Flight
                                     </a>
                                 </div>
@@ -122,8 +139,10 @@
         </section>
     </div>
 
-    <%@ include file = "./commons/components/templates/footer.jsp" %>
+    <footer>
+        <span> Copyrights &copy; 2018 TravelPortal </span>
+    </footer>
 
-    <script src="../../public/js/bootstrap.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
 </body>
 </html>

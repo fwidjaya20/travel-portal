@@ -1,4 +1,5 @@
 <%@ include file = "../../config/importer/Importer.jsp" %>
+<%@ include file = "../../app/http/Middleware/RedirectIfNotAdmin.jsp" %>
 
 <!doctype html>
 <html lang="en">
@@ -12,26 +13,21 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../public/css/styles.css">
-    <link rel="stylesheet" href="../../public/css/apps-template.css">
-    <link rel="stylesheet" href="../../public/css/index.css">
+    <link rel="stylesheet" href="../../public/css/web-template.css">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500" rel="stylesheet">
 </head>
 <body id="root">
-    <%@ include file = "./commons/components/templates/header-web.jsp" %>
+    <%@ include file = "./commons/components/templates/header-apps.jsp" %>
         <section class="banner">
             <div class="container">
-                <div class="banner-content d-flex flex-column align-items-center">
-                    <h2 class="index-banner-title mb-4">
-                        Where are you going ?
+                <div class="banner-content d-flex flex-column align-items-start">
+                    <h2 class="banner-title mb-4">
+                        Update Ticket
                     </h2>
-
-                    <span class="index-brand-motto">
-                        Ticket anywhere only at TravelPortal.
-                    </span>
-                    <span class="index-brand-description mt-1">
-                        Booking is faster, easier and cheaper.
+                    <span class="banner-description">
+                        Update the ticket
                     </span>
                 </div>
             </div>
@@ -42,19 +38,19 @@
         <section class="container">
             <div>
                 <div class="box banner-box" style="padding: 50px 75px">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h3> Where are you going ? </h3>
-
-                        <ul class="travel-portal-services">
-                            <li class="service-item">
-                                <button class="btn btn-service active">
-                                    <img src="../../public/assets/icons/service-plane.svg" alt="">
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="mt-5">
+                    <div>
                         <form class="box-form">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="airline">Airline</label>
+                                        <select id="airline" class="form-control">
+                                            <option value="-"> - </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="row">
                                 <div class="col-md-6 col-sm-12">
                                     <div class="form-group">
@@ -76,43 +72,34 @@
 
                             <div class="row mt-2">
                                 <div class="col-md-6 col-sm-12">
-                                    <div class="form-group">
-                                        <label for="depature">Depature Date</label>
-                                        <input type="date" id="depature" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-12">
                                     <div class="row">
                                         <div class="col-md-6 col-sm-12">
                                             <div class="form-group">
-                                                <label for="passengers">Passengers</label>
-                                                <select id="passengers" class="form-control">
-                                                    <option value="1"> 1 </option>
-                                                    <option value="2"> 2 </option>
-                                                    <option value="3"> 3 </option>
-                                                    <option value="4"> 4 </option>
-                                                    <option value="5"> 5 </option>
-                                                </select>
+                                                <label for="price_economy">Price Economy (Rp.)</label>
+                                                <input type="number" id="price_economy" class="form-control" value="0">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-12">
                                             <div class="form-group">
-                                                <label for="class">Cabin Class</label>
-                                                <select id="class" class="form-control">
-                                                    <option value="economy"> Economy </option>
-                                                    <option value="business"> Business </option>
-                                                </select>
+                                                <label for="price_business">Price Business (Rp.)</label>
+                                                <input type="number" id="price_business" class="form-control" value="0">
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label for="available_seat">Available Seat</label>
+                                        <input type="number" id="available_seat" class="form-control" value="0">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-12 text-right">
-                                    <a href="ticket-search.jsp" class="btn btn-portal-primary text-light">
-                                        Search Flight
-                                    </a>
+                                    <button class="btn btn-portal-primary">
+                                        Update Ticket
+                                    </button>
                                 </div>
                             </div>
                         </form>

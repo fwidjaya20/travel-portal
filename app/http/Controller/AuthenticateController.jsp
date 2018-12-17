@@ -15,11 +15,21 @@ public class AuthenticateController {
 			ResultSet rs = db.st.executeQuery(QUERY);
 
 			if (rs.next()) {
-				// Set to Session
+				User user = new User(
+					Integer.parseInt(rs.getString("id").toString()),
+					rs.getString("name"),
+					rs.getString("email"),
+					rs.getString("password"),
+					rs.getString("role"),
+					rs.getString("gender"),
+					Integer.parseInt(rs.getString("point").toString())
+				);
+
+				this.auth.setUserSession(user);
 				if (isRemember) {
-					// Set to Cookies
+					this.auth.setUserCookies(user);
 				}
-				// Set User Count on Application
+				this.auth.incrementUserLoggedIn();
 				return true;
 			}
 
@@ -44,7 +54,9 @@ public class AuthenticateController {
 	}
 
 	public boolean logout() {
-		return false;
+		this.auth.clearSession();
+		this.auth.decrementUserLoggedIn();
+		return true;
 	}
 }
 %>

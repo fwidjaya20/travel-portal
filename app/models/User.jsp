@@ -1,21 +1,21 @@
 <%!
 public class User extends Model {
-	public Integer id;
+	public int id;
 	public String name;
 	public String email;
 	public String password;
 	public String role;
 	public String gender;
-	public Integer point;
+	public int point;
 
 	public User(
-		Integer id, 
+		int id, 
 		String name, 
 		String email,
 		String password,
 		String role,
 		String gender,
-		Integer point
+		int point
 	) {
 		this.id = id;
 		this.name = name;

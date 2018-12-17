@@ -1,4 +1,5 @@
 <%@ include file = "../../config/importer/Importer.jsp" %>
+<%@ include file = "../../app/http/Middleware/RedirectIfAuthenticate.jsp" %>
 
 <!doctype html>
 <html lang="en">
@@ -42,8 +43,8 @@
                                 <label for="password">Password</label>
                                 <input type="password" id="password" name="password" class="form-control">
                             </div>
-                            <div class="form-group">
-                                <input type="checkbox" id="remember" name="remember" class="form-control">
+                            <div class="form-group-checkbox">
+                                <input type="checkbox" id="remember" name="remember">
                                 <label for="remember">Remember Me</label>
                             </div>
 

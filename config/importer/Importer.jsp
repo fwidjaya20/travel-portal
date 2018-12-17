@@ -12,4 +12,5 @@
 
 <%
 	Auth auth = new Auth(application, session, request, response);
+	auth.checkForSessionAndCookies();
 %>

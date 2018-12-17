@@ -7,10 +7,37 @@
                     <li class="nav-item">
                         <a href="transaction.jsp" class="nav-link text-light"> Dashboard </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="track-order.jsp" class="nav-link text-light"> Track Order </a>
+                    </li>
+                    <li class="nav-item position-relative has-dropmenu">
+                        <a href="javascript:;" class="nav-link text-light"> <%= auth.getUser().name %> </a>
+
+                        <ul class="dropdown">
+                            <li class="dropdown-item">
+                                <a href="profile.jsp" class="text-dark"> Edit Profile </a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="../../app/http/Handler/Logout.jsp" class="text-dark"> Logout </a>
+                            </li>
+                        </ul>
+                    </li>
                 <% } %>
                 <% if (auth.getUser().role.equals("Member")) { %>
                     <li class="nav-item">
                         <a href="track-order.jsp" class="nav-link text-light"> Track Order </a>
+                    </li>
+                    <li class="nav-item position-relative has-dropmenu">
+                        <a href="javascript:;" class="nav-link text-light"> <%= auth.getUser().name %> </a>
+
+                        <ul class="dropdown">
+                            <li class="dropdown-item">
+                                <a href="profile.jsp" class="text-dark"> Edit Profile </a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="../../app/http/Handler/Logout.jsp" class="text-dark"> Logout </a>
+                            </li>
+                        </ul>
                     </li>
                 <% } %>
                 <% if (auth.getUser().role.equals("Guest")) { %>
