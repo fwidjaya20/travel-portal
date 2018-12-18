@@ -39,18 +39,18 @@
             <div>
                 <div class="box banner-box" style="padding: 50px 75px">
                     <div>
-                        <form class="box-form">
+                        <form action="../../app/http/Handler/CityInsert.jsp" method="post" class="box-form">
                             <div class="row">
                                 <div class="col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label for="city">City</label>
-                                        <input type="text" id="city" class="form-control">
+                                        <input type="text" id="city" name="city" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label for="country">Country</label>
-                                        <input type="text" id="country" class="form-control">
+                                        <input type="text" id="country" name="country" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -61,6 +61,10 @@
                                         Add City
                                     </button>
                                 </div>
+
+                                <span class="error text-danger">
+                                    <%= request.getParameter("errorMsg") != null ? request.getParameter("errorMsg") : "" %>
+                                </span>
                             </div>
                         </form>
                     </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2018 at 11:55 AM
+-- Generation Time: Dec 18, 2018 at 06:54 AM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.0.30
 
@@ -47,6 +47,17 @@ CREATE TABLE `cities` (
   `country` varchar(150) NOT NULL,
   `city` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cities`
+--
+
+INSERT INTO `cities` (`id`, `country`, `city`) VALUES
+(2, 'Indonesia', 'Pontianak'),
+(3, 'Indonesia', 'Jakarta'),
+(4, 'Indonesia', 'Pekanbaru'),
+(5, 'Indonesia', 'Bandung'),
+(6, 'Indonesia', 'Papua');
 
 -- --------------------------------------------------------
 
@@ -175,7 +186,7 @@ ALTER TABLE `carts`
 -- AUTO_INCREMENT for table `cities`
 --
 ALTER TABLE `cities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tickets`

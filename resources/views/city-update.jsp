@@ -1,5 +1,6 @@
 <%@ include file = "../../config/importer/Importer.jsp" %>
 <%@ include file = "../../app/http/Middleware/RedirectIfNotAdmin.jsp" %>
+<%@ include file = "../../app/http/Controller/CityController.jsp" %>
 
 <!doctype html>
 <html lang="en">
@@ -39,18 +40,24 @@
             <div>
                 <div class="box banner-box" style="padding: 50px 75px">
                     <div>
-                        <form class="box-form">
+                        <%
+                            CityController controller = new CityController();
+
+                            City c = controller.getCityById(request.getParameter("id"));
+                        %>
+                        <form action="../../app/http/Handler/CityUpdate.jsp" class="box-form">
+                            <input type="hidden" name="id" value="<%= c.id %>">
                             <div class="row">
                                 <div class="col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label for="city">City</label>
-                                        <input type="text" id="city" class="form-control">
+                                        <input type="text" id="city" name="city" value="<%= c.city %>" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label for="country">Country</label>
-                                        <input type="text" id="country" class="form-control">
+                                        <input type="text" id="country" name="country" value="<%= c.country %>" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -61,6 +68,10 @@
                                         Update City
                                     </button>
                                 </div>
+
+                                <span class="error text-danger">
+                                    <%= request.getParameter("errorMsg") != null ? request.getParameter("errorMsg") : "" %>
+                                </span>
                             </div>
                         </form>
                     </div>

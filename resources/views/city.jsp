@@ -1,5 +1,6 @@
 <%@ include file = "../../config/importer/Importer.jsp" %>
 <%@ include file = "../../app/http/Middleware/RedirectIfNotAdmin.jsp" %>
+<%@ include file = "../../app/http/Controller/CityController.jsp" %>
 
 <!doctype html>
 <html lang="en">
@@ -49,14 +50,34 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td> @mdo </td>
-                                    <td> @mdo </td>
-                                    <td>
-                                        <a href="city-update.jsp" class="btn btn-primary btn-sm"> Edit </a>
-                                        <a href="javascript:;" class="btn btn-danger btn-sm"> Delete </a>
-                                    </td>
-                                </tr>
+                                <% 
+                                    CityController controller = new CityController();
+
+                                    ArrayList<City> cities = controller.getCities();
+
+                                    if (cities.size() > 0) {
+                                        for (City c : cities) {
+                                %>
+                                        <tr>
+                                            <td> <%= c.city %> </td>
+                                            <td> <%= c.country %> </td>
+                                            <td>
+                                                <a href="city-update.jsp?id=<%= c.id %>" class="btn btn-primary btn-sm"> Edit </a>
+                                                <a href="../../app/http/Handler/CityDelete.jsp?id=<%= c.id %>" class="btn btn-danger btn-sm"> Delete </a>
+                                            </td>
+                                        </tr>
+                                <%
+                                        }
+                                    } else {
+                                %>
+                                        <tr>
+                                            <td colspan="3" class="text-center">
+                                                <span class="text-muted"> No Data Available </span>
+                                            </td>
+                                        </tr>
+                                <%
+                                    }
+                                %>
                                 </tbody>
                             </table>
                         </div>
