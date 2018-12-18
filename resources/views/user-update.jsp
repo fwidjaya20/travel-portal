@@ -39,20 +39,26 @@
             <div>
                 <div class="box banner-box" style="padding: 50px 75px">
                     <div>
-                        <form class="box-form">
+                        <%
+                            UserController controller = new UserController();
+
+                            User c = controller.getUserById(request.getParameter("id"));
+                        %>
+                        <form action="../../app/http/Handler/UserUpdate.jsp" method="post" class="box-form">
+                            <input type="hidden" name="id" value="<%= c.id %>">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" id="name" class="form-control">
+                                        <input type="text" id="name" name="name" value="<%= c.name %>" class="form-control">
                                     </div>
                                 </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="name">Email</label>
-                                            <input type="text" id="name" class="form-control">
+                                            <label for="email">Email</label>
+                                            <input type="text" id="email" name="email" value="<%= c.email %>" class="form-control">
                                         </div>
                                     </div>
                             </div>
@@ -61,8 +67,13 @@
                                     <div class="form-group">
                                         <label class="form-check-label">Gender</label>
                                         <div class="form-check-inline">
-                                            <input type="radio" name="gender" id="male" value="Male"> &nbsp; <label for="male" class="form-check-label"> Male </label>
-                                            <input type="radio" name="gender" id="female" value="Female" class="ml-3"> &nbsp; <label for="female" class="form-check-label"> Female </label>
+                                            <% if (c.gender.equals("Male")) { %>
+                                                <input type="radio" name="gender" id="male" value="Male" checked> &nbsp; <label for="male" class="form-check-label"> Male </label>
+                                                <input type="radio" name="gender" id="female" value="Female" class="ml-3"> &nbsp; <label for="female" class="form-check-label"> Female </label>
+                                            <% } else { %>
+                                                <input type="radio" name="gender" id="male" value="Male"> &nbsp; <label for="male" class="form-check-label"> Male </label>
+                                                <input type="radio" name="gender" id="female" value="Female" class="ml-3" checked> &nbsp; <label for="female" class="form-check-label"> Female </label>
+                                            <% } %>
                                         </div>
                                     </div>
                                 </div>
@@ -71,13 +82,17 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="password">Password</label>
-                                        <input type="password" id="password" class="form-control">
+                                        <input type="password" id="password" name="password" value="<%= c.password %>" class="form-control">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-12 text-right">
+                                    <span class="error text-danger">
+                                        <%= request.getParameter("errorMsg") != null ? request.getParameter("errorMsg") : "" %>
+                                    </span>
+
                                     <button class="btn btn-portal-primary">
                                         Update User
                                     </button>

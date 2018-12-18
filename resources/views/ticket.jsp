@@ -1,5 +1,14 @@
 <%@ include file = "../../config/importer/Importer.jsp" %>
 <%@ include file = "../../app/http/Middleware/RedirectIfNotAdmin.jsp" %>
+<%@ include file = "../../app/http/Controller/CityController.jsp" %>
+<%@ include file = "../../app/http/Controller/TicketController.jsp" %>
+
+<%
+    CityController cityController = new CityController();
+    TicketController ticketController = new TicketController();
+
+    ArrayList<Ticket> tickets = ticketController.getTickets();
+%>
 
 <!doctype html>
 <html lang="en">
@@ -46,6 +55,7 @@
                                     <th rowspan="2"> Airline </th>
                                     <th rowspan="2"> From </th>
                                     <th rowspan="2"> To </th>
+                                    <th rowspan="2"> Departure Date </th>
                                     <th colspan="2" class="text-center"> Price</th>
                                     <th rowspan="2"> Seat </th>
                                     <th rowspan="2" style="width: 17%"> Action </th>
@@ -56,18 +66,35 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td> @mdo </td>
-                                    <td> @mdo </td>
-                                    <td> @mdo </td>
-                                    <td> @mdo </td>
-                                    <td> @mdo </td>
-                                    <td> @mdo </td>
-                                    <td>
-                                        <a href="ticket-update.jsp" class="btn btn-primary btn-sm"> Edit </a>
-                                        <a href="javascript:;" class="btn btn-danger btn-sm"> Delete </a>
-                                    </td>
-                                </tr>
+                                <%
+                                    if (tickets.size() > 0) {
+                                        for (Ticket t : tickets) {
+                                %>
+                                        <tr>
+                                            <td> <%= t.airline %> </td>
+                                            <td> <%= cityController.getCityById(t.from_city + "").city %> </td>
+                                            <td> <%= cityController.getCityById(t.to_city + "").city %> </td>
+                                            <td> <%= t.depature_date %> </td>
+                                            <td> <span class="badge">Rp.</span> <%= t.price_economy %> </td>
+                                            <td> <span class="badge">Rp.</span> <%= t.price_business %> </td>
+                                            <td> <%= t.available %> </td>
+                                            <td>
+                                                <a href="ticket-update.jsp?id=<%= t.id %>" class="btn btn-primary btn-sm"> Edit </a>
+                                                <a href="../../app/http/Handler/TicketDelete.jsp?id=<%= t.id %>" class="btn btn-danger btn-sm"> Delete </a>
+                                            </td>
+                                        </tr>
+                                <%
+                                        }
+                                    } else {
+                                %>
+                                        <tr>
+                                            <td colspan="3" class="text-center">
+                                                <span class="text-muted"> No Data Available </span>
+                                            </td>
+                                        </tr>
+                                <%
+                                    }
+                                %>
                                 </tbody>
                             </table>
                         </div>

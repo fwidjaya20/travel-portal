@@ -51,16 +51,36 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td> @mdo </td>
-                                    <td> @mdo </td>
-                                    <td> @mdo </td>
-                                    <td> @mdo </td>
-                                    <td>
-                                        <a href="user-update.jsp" class="btn btn-primary btn-sm"> Edit </a>
-                                        <a href="javascript:;" class="btn btn-danger btn-sm"> Delete </a>
-                                    </td>
-                                </tr>
+                                <% 
+                                    UserController controller = new UserController();
+
+                                    ArrayList<User> users = controller.getUsers();
+
+                                    if (users.size() > 0) {
+                                        for (User u : users) {
+                                %>
+                                        <tr>
+                                            <td> <%= u.name %> </td>
+                                            <td> <%= u.email %> </td>
+                                            <td> ****** </td>
+                                            <td> <%= u.gender %> </td>
+                                            <td>
+                                                <a href="user-update.jsp?id=<%= u.id %>" class="btn btn-primary btn-sm"> Edit </a>
+                                                <a href="../../app/http/Handler/UserDelete.jsp?id=<%= u.id %>" class="btn btn-danger btn-sm"> Delete </a>
+                                            </td>
+                                        </tr>
+                                <%
+                                        }
+                                    } else {
+                                %>
+                                        <tr>
+                                            <td colspan="3" class="text-center">
+                                                <span class="text-muted"> No Data Available </span>
+                                            </td>
+                                        </tr>
+                                <%
+                                    }
+                                %>
                                 </tbody>
                             </table>
                         </div>

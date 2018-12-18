@@ -1,4 +1,10 @@
 <%@ include file = "../../config/importer/Importer.jsp" %>
+<%@ include file = "../../app/http/Controller/CityController.jsp" %>
+
+<%
+    CityController cityController = new CityController();
+    ArrayList<City> cities = cityController.getCities();
+%>
 
 <!doctype html>
 <html lang="en">
@@ -54,21 +60,33 @@
                         </ul>
                     </div>
                     <div class="mt-5">
-                        <form class="box-form">
+                        <form action="ticket-search.jsp" method="get" class="box-form">
                             <div class="row">
                                 <div class="col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label for="from">From</label>
-                                        <select id="from" class="form-control">
-                                            <option value="-"> - </option>
+                                        <select id="from" name="from" class="form-control">
+                                            <%
+                                                for(City c : cities) {
+                                            %>
+                                                    <option value="<%= c.id %>"> <%= c.city %> </option>
+                                            <%
+                                                }
+                                            %>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label for="to">To</label>
-                                        <select id="to" class="form-control">
-                                            <option value="-"> - </option>
+                                        <select id="to" name="to" class="form-control">
+                                            <%
+                                                for(City c : cities) {
+                                            %>
+                                                    <option value="<%= c.id %>"> <%= c.city %> </option>
+                                            <%
+                                                }
+                                            %>
                                         </select>
                                     </div>
                                 </div>
@@ -77,8 +95,15 @@
                             <div class="row mt-2">
                                 <div class="col-md-6 col-sm-12">
                                     <div class="form-group">
+                                        <%
+                                            Date d = new Date();
+
+                                            String format = "Y-M-d";
+
+                                            DateFormat dateFormat = new SimpleDateFormat(format);
+                                        %>
                                         <label for="depature">Depature Date</label>
-                                        <input type="date" id="depature" class="form-control">
+                                        <input type="date" id="depature" name="depature_date" class="form-control" value="<%= dateFormat.format(d) %>" min="<%= dateFormat.format(d) %>">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-12">
@@ -86,7 +111,7 @@
                                         <div class="col-md-6 col-sm-12">
                                             <div class="form-group">
                                                 <label for="passengers">Passengers</label>
-                                                <select id="passengers" class="form-control">
+                                                <select id="passengers" name="passengers" class="form-control">
                                                     <option value="1"> 1 </option>
                                                     <option value="2"> 2 </option>
                                                     <option value="3"> 3 </option>
@@ -98,7 +123,7 @@
                                         <div class="col-md-6 col-sm-12">
                                             <div class="form-group">
                                                 <label for="class">Cabin Class</label>
-                                                <select id="class" class="form-control">
+                                                <select id="class" name="cabin_class" class="form-control">
                                                     <option value="economy"> Economy </option>
                                                     <option value="business"> Business </option>
                                                 </select>
@@ -110,7 +135,7 @@
 
                             <div class="row">
                                 <div class="col-12 text-right">
-                                    <a href="ticket-search.jsp" class="btn btn-portal-primary text-light">
+                                    <button type="submit" class="btn btn-portal-primary text-light">
                                         Search Flight
                                     </a>
                                 </div>

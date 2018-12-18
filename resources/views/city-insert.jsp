@@ -57,14 +57,14 @@
 
                             <div class="row">
                                 <div class="col-12 text-right">
+                                    <span class="error text-danger">
+                                        <%= request.getParameter("errorMsg") != null ? request.getParameter("errorMsg") : "" %>
+                                    </span>
+
                                     <button class="btn btn-portal-primary">
                                         Add City
                                     </button>
                                 </div>
-
-                                <span class="error text-danger">
-                                    <%= request.getParameter("errorMsg") != null ? request.getParameter("errorMsg") : "" %>
-                                </span>
                             </div>
                         </form>
                     </div>

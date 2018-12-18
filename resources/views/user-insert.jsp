@@ -39,12 +39,12 @@
             <div>
                 <div class="box banner-box" style="padding: 50px 75px">
                     <div>
-                        <form class="box-form">
+                        <form action="../../app/http/Handler/UserInsert.jsp" method="post" class="box-form">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" id="name" class="form-control">
+                                        <input type="text" id="name" name="name" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +52,7 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="name">Email</label>
-                                        <input type="text" id="name" class="form-control">
+                                        <input type="text" id="email" name="email" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -71,13 +71,17 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label for="password">Password</label>
-                                        <input type="password" id="password" class="form-control">
+                                        <input type="password" id="password" name="password" class="form-control">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-12 text-right">
+                                    <span class="error text-danger">
+                                        <%= request.getParameter("errorMsg") != null ? request.getParameter("errorMsg") : "" %>
+                                    </span>
+
                                     <button class="btn btn-portal-primary">
                                         Add User
                                     </button>

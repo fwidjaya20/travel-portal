@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2018 at 06:54 AM
+-- Generation Time: Dec 18, 2018 at 12:40 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.0.30
 
@@ -33,7 +33,9 @@ CREATE TABLE `carts` (
   `person_title` varchar(5) NOT NULL,
   `person_name` varchar(200) NOT NULL,
   `person_nasionality` varchar(50) NOT NULL,
-  `ticket` int(11) NOT NULL
+  `ticket` int(11) NOT NULL,
+  `cabin_type` varchar(50) NOT NULL,
+  `buyer` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -72,8 +74,21 @@ CREATE TABLE `tickets` (
   `to_city` int(11) NOT NULL,
   `price_economy` int(11) NOT NULL,
   `price_business` int(11) NOT NULL,
-  `available` int(11) NOT NULL DEFAULT '0'
+  `available` int(11) NOT NULL DEFAULT '0',
+  `depature_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tickets`
+--
+
+INSERT INTO `tickets` (`id`, `airline`, `from_city`, `to_city`, `price_economy`, `price_business`, `available`, `depature_date`) VALUES
+(1, 'Garuda Indonesia', 2, 3, 980000, 1200000, 35, '2019-01-20'),
+(3, 'Garuda Indonesia', 2, 5, 1200000, 1350000, 25, '2018-12-30'),
+(5, 'Sriwijaya Air', 2, 3, 835000, 1100000, 35, '2019-01-20'),
+(6, 'Lion Air', 2, 3, 970000, 1350000, 25, '2019-01-20'),
+(7, 'Batik Air', 2, 3, 1530000, 1680000, 40, '2019-01-20'),
+(8, 'City Link', 2, 3, 880000, 1000000, 25, '2019-01-20');
 
 -- --------------------------------------------------------
 
@@ -100,7 +115,8 @@ CREATE TABLE `transaction_details` (
   `person_title` varchar(5) NOT NULL,
   `person_name` varchar(200) NOT NULL,
   `person_nasionality` varchar(50) NOT NULL,
-  `ticket` int(11) NOT NULL
+  `ticket` int(11) NOT NULL,
+  `ticket_type` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -124,7 +140,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `gender`, `point`) VALUES
-(1, 'Fredrick Widjaya', 'fwidjaya20@travel.dev', '123123', 'Admin', 'Male', 0);
+(1, 'Fredrick Widjaya', 'fwidjaya20@travel.dev', '123123', 'Admin', 'Male', 0),
+(2, 'Jeffrey Widjaya', 'jwidjaya@travel.dev', '123123', 'Member', 'Male', 0),
+(3, 'Steven Martin', 'smarin@travel.dev', '123123', 'Member', 'Male', 0);
 
 --
 -- Indexes for dumped tables
@@ -135,7 +153,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `gender`, `point
 --
 ALTER TABLE `carts`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `cart_ticket` (`ticket`);
+  ADD KEY `cart_ticket` (`ticket`),
+  ADD KEY `buyer_information` (`buyer`);
 
 --
 -- Indexes for table `cities`
@@ -192,7 +211,7 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT for table `tickets`
 --
 ALTER TABLE `tickets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `transactions`
@@ -210,7 +229,7 @@ ALTER TABLE `transaction_details`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
@@ -220,6 +239,7 @@ ALTER TABLE `users`
 -- Constraints for table `carts`
 --
 ALTER TABLE `carts`
+  ADD CONSTRAINT `buyer_information` FOREIGN KEY (`buyer`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `cart_ticket` FOREIGN KEY (`ticket`) REFERENCES `tickets` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --

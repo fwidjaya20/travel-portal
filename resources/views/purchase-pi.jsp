@@ -1,5 +1,13 @@
 <%@ include file = "../../config/importer/Importer.jsp" %>
 
+<%
+    String flight_id = request.getParameter("flight_id");
+    String passenger = request.getParameter("passengers");
+    String cabin_class = request.getParameter("cabin_class");
+
+    String requiredParam = "flight_id=" + flight_id + "&passengers=" + passenger + "&cabin_class=" + cabin_class;
+%>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -26,42 +34,50 @@
             <div class="pt-4">
                 <div class="ticket-card">
                     <div>
-                        <form class="box-form">
-                            <!-- Loopable -->
-                            <p class="d-flex align-items-center">
-                                <span class="circle-badge mr-2"> 1 </span> Passenger Information
-                            </p>
-                            <div class="row">
-                                <div class="col-md-4 col-sm-12">
-                                    <div class="form-group">
-                                        <label for="person_title">Title</label>
-                                        <select id="person_title" class="form-control">
-                                            <option value="Mr"> Mr </option>
-                                            <option value="Mrs"> Mrs </option>
-                                        </select>
+                        <form action="../../app/http/Handler/TransactionPurchase.jsp?<%= requiredParam %>" method="post" class="box-form">
+                            <%
+                                for (int i = 1 ; i <= Integer.parseInt(passenger) ; i++) {
+                            %>
+                                    <p class="d-flex align-items-center">
+                                        <span class="circle-badge mr-2"> <%= i %> </span> Passenger Information
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="person_title">Title</label>
+                                                <select id="person_title" name="person_title_<%= i %>" class="form-control">
+                                                    <option value="Mr"> Mr </option>
+                                                    <option value="Mrs"> Mrs </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="person_name">Name</label>
+                                                <input type="text" id="person_name" name="person_name_<%= i %>" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-12">
+                                            <div class="form-group">
+                                                <label for="person_nasionality">Nasionality</label>
+                                                <select id="person_nasionality" name="person_nasionality_<%= i %>" class="form-control">
+                                                    <option value="Indonesia"> Indonesia </option>
+                                                    <option value="China"> China </option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4 col-sm-12">
-                                    <div class="form-group">
-                                        <label for="person_name">Name</label>
-                                        <input type="text" id="person_name" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-12">
-                                    <div class="form-group">
-                                        <label for="person_nasionality">Nasionality</label>
-                                        <select id="person_nasionality" class="form-control">
-                                            <option value="Indonesia"> Indonesia </option>
-                                            <option value="China"> China </option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Endloopable -->
+                            <%
+                                }
+                            %>
 
                             <div class="row">
                                 <div class="col-12 text-right">
-                                    <button class="btn btn-portal-primary">
+                                    <span class="error text-danger">
+                                        <%= request.getParameter("errorMsg") != null ? request.getParameter("errorMsg") : "" %>
+                                    </span>
+                                    
+                                    <button type="submit" class="btn btn-portal-primary">
                                         Purchase Ticket(s)
                                     </button>
                                 </div>

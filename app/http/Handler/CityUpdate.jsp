@@ -11,7 +11,7 @@
 	boolean hasError = false;
 
 	if (validator.isEmpty(id)) {
-		errorMsg = "Id must be filled!";
+		errorMsg = "Cant update city! ID is missing";
 		hasError = true;
 	} else if (validator.isEmpty(city)){
         errorMsg = "City must be filled!";

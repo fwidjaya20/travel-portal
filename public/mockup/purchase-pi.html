@@ -1,3 +1,18 @@
+<%
+    CityController cityController = new CityController();
+    TicketController ticketController = new TicketController();
+
+    String from = request.getParameter("from");
+    String to = request.getParameter("to");
+    String depature_date = request.getParameter("depature_date");
+    String passenger = request.getParameter("passengers");
+    String cabin_class = request.getParameter("cabin_class");
+
+    ArrayList<Ticket> tickets = ticketController.filterTicket(from, to, depature_date, passenger);
+
+    String requiredParam = "passenger=" + passenger + "&cabin_class=" + cabin_class;
+%>
+
 <!doctype html>
 <html lang="en">
 <head>
