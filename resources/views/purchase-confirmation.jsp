@@ -1,5 +1,4 @@
 <%@ include file = "../../config/importer/Importer.jsp" %>
-<%@ include file = "../../app/http/Middleware/RedirectIfNotAdmin.jsp" %>
 <%@ include file = "../../app/http/Controller/CityController.jsp" %>
 <%@ include file = "../../app/http/Controller/TransactionController.jsp" %>
 
