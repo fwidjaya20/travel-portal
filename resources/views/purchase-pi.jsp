@@ -34,7 +34,7 @@
             <div class="pt-4">
                 <div class="ticket-card">
                     <div>
-                        <form action="../../app/http/Handler/TransactionPurchase.jsp?<%= requiredParam %>" method="post" class="box-form">
+                        <form action="../../app/http/Handler/CartAttempt.jsp?<%= requiredParam %>" method="post" class="box-form">
                             <%
                                 for (int i = 1 ; i <= Integer.parseInt(passenger) ; i++) {
                             %>

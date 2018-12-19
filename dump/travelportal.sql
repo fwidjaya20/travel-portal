@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2018 at 12:40 PM
+-- Generation Time: Dec 19, 2018 at 09:10 AM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.0.30
 
@@ -88,7 +88,7 @@ INSERT INTO `tickets` (`id`, `airline`, `from_city`, `to_city`, `price_economy`,
 (5, 'Sriwijaya Air', 2, 3, 835000, 1100000, 35, '2019-01-20'),
 (6, 'Lion Air', 2, 3, 970000, 1350000, 25, '2019-01-20'),
 (7, 'Batik Air', 2, 3, 1530000, 1680000, 40, '2019-01-20'),
-(8, 'City Link', 2, 3, 880000, 1000000, 25, '2019-01-20');
+(8, 'City Link', 2, 3, 880000, 1000000, 19, '2019-01-20');
 
 -- --------------------------------------------------------
 
@@ -100,8 +100,17 @@ CREATE TABLE `transactions` (
   `id` int(11) NOT NULL,
   `date` date NOT NULL,
   `buyer` int(11) NOT NULL,
-  `invoice_number` varchar(15) NOT NULL
+  `invoice_number` varchar(150) NOT NULL,
+  `status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transactions`
+--
+
+INSERT INTO `transactions` (`id`, `date`, `buyer`, `invoice_number`, `status`) VALUES
+(1, '2018-12-19', 1, 'INV/20181219/1545200713651', 'Approved'),
+(12, '2018-12-19', 1, 'INV/20181219/1545201668836', 'Canceled');
 
 -- --------------------------------------------------------
 
@@ -118,6 +127,16 @@ CREATE TABLE `transaction_details` (
   `ticket` int(11) NOT NULL,
   `ticket_type` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transaction_details`
+--
+
+INSERT INTO `transaction_details` (`id`, `transaction_id`, `person_title`, `person_name`, `person_nasionality`, `ticket`, `ticket_type`) VALUES
+(2, 1, 'Mr', 'Steven Martin', 'Indonesia', 6, 'business'),
+(3, 1, 'Mrs', 'Angela Irena Andriati', 'Indonesia', 6, 'business'),
+(23, 12, 'Mr', 'Samuel Budiman', 'Indonesia', 8, 'economy'),
+(24, 12, 'Mr', 'Steven Chu', 'Indonesia', 8, 'economy');
 
 -- --------------------------------------------------------
 
@@ -199,13 +218,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `cities`
 --
 ALTER TABLE `cities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tickets`
@@ -217,19 +236,19 @@ ALTER TABLE `tickets`
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `transaction_details`
 --
 ALTER TABLE `transaction_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

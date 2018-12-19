@@ -34,7 +34,10 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item position-relative mr-2 has-dropmenu">
+                        <li class="nav-item position-relative mr-2">
+                            <a href="transaction.jsp" class="text-light"> Transactions </a>
+                        </li>
+                        <!-- <li class="nav-item position-relative mr-2 has-dropmenu">
                             <a href="transaction.jsp" class="text-light"> Transactions </a>
 
                             <ul class="dropdown">
@@ -42,7 +45,7 @@
                                     <a href="transaction-insert.jsp" class="text-dark"> Insert Transaction </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                     <% } %>
                 </ul>
             </span>

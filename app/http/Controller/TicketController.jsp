@@ -44,6 +44,18 @@ public class TicketController {
 		}
 	}
 
+	public boolean decreaseTicketAvailable(int id, int usedTicket) {
+		String QUERY = "UPDATE tickets SET available=available-'"+ usedTicket +"' WHERE id='"+ id +"'";
+
+		try {
+			db.st.executeUpdate(QUERY);
+
+			return true;
+		} catch(Exception e) {
+			return false;
+		}
+	}
+
 	public ArrayList<Ticket> filterTicket(String from, String to, String depature_date, String passengers) {
 		ArrayList<Ticket> tickets = new ArrayList<Ticket>();
 

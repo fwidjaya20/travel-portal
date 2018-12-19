@@ -1,5 +1,13 @@
 <%@ include file = "../../config/importer/Importer.jsp" %>
 <%@ include file = "../../app/http/Middleware/RedirectIfNotAdmin.jsp" %>
+<%@ include file = "../../app/http/Controller/TransactionController.jsp" %>
+
+<%
+    TransactionController transactionController = new TransactionController(auth);
+    UserController userController = new UserController();
+
+    ArrayList<Transaction> transactions = transactionController.getTransactions();
+%>
 
 <!doctype html>
 <html lang="en">
@@ -51,39 +59,59 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td> @mdo </td>
-                                    <td> @mdo </td>
-                                    <td> @mdo </td>
-                                    <td> <span class="badge badge-success"> Approved </span> </td>
-                                    <td>
-                                        <a href="transaction-detail.jsp" class="btn btn-info btn-sm"> View </a>
-                                        <a href="transaction-update.jsp" class="btn btn-primary btn-sm"> Edit </a>
-                                        <a href="javascript:;" class="btn btn-danger btn-sm"> Delete </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td> @mdo </td>
-                                    <td> @mdo </td>
-                                    <td> @mdo </td>
-                                    <td> <span class="badge badge-warning"> Pending </span> </td>
-                                    <td>
-                                        <a href="transaction-detail.jsp" class="btn btn-info btn-sm"> View </a>
-                                        <a href="transaction-update.jsp" class="btn btn-primary btn-sm"> Edit </a>
-                                        <a href="javascript:;" class="btn btn-danger btn-sm"> Delete </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td> @mdo </td>
-                                    <td> @mdo </td>
-                                    <td> @mdo </td>
-                                    <td> <span class="badge badge-danger"> Rejected </span> </td>
-                                    <td>
-                                        <a href="transaction-detail.jsp" class="btn btn-info btn-sm"> View </a>
-                                        <a href="transaction-update.jsp" class="btn btn-primary btn-sm"> Edit </a>
-                                        <a href="javascript:;" class="btn btn-danger btn-sm"> Delete </a>
-                                    </td>
-                                </tr>
+                                <%
+                                    for (Transaction t : transactions) {
+                                        String requiredParam = "id=" + t.id + "&invoice_number=" + t.invoiceNumber;
+                                %>
+                                        <tr>
+                                            <td> <%= t.invoiceNumber %> </td>
+                                            <td> <%= t.date %> </td>
+                                            <td> <%= userController.getUserById(t.buyer + "").name %> </td>
+                                            <td>
+                                                <%
+                                                    if (t.status.equalsIgnoreCase("Approved")) {
+                                                %>
+                                                        <span class="badge badge-success"> Approved </span>
+                                                <%
+                                                    } else if (t.status.equalsIgnoreCase("Rejected")) {
+                                                %>
+                                                        <span class="badge badge-danger"> Rejected </span>
+                                                <%
+                                                    } else if (t.status.equalsIgnoreCase("Canceled")) {
+                                                %>
+                                                        <span class="badge badge-danger"> Canceled </span>
+                                                <%
+                                                    } else if (t.status.equalsIgnoreCase("Pending")) {
+                                                %>
+                                                        <span class="badge badge-warning"> Pending </span>
+                                                <%
+                                                    } else {
+                                                %>
+                                                        <span class="badge badge-secondary"> No Status </span>
+                                                <%
+                                                    }
+                                                %>
+                                            </td>
+                                            <td>
+                                                <a href="transaction-detail.jsp?<%= requiredParam %>" class="btn btn-info btn-sm"> View </a>
+                                                <%
+                                                    if (t.status.equalsIgnoreCase("Approved") || t.status.equalsIgnoreCase("Canceled")) {
+                                                %>
+                                                        <a href="transaction-update.jsp?<%= requiredParam %>" class="btn btn-primary btn-sm disabled"> Edit </a>
+                                                        <a href="../../app/http/Handler/TransactionCancelation.jsp?<%= requiredParam %>" class="btn btn-danger btn-sm disabled"> Delete </a>
+                                                <%
+                                                    } else {
+                                                %>
+                                                        <a href="transaction-update.jsp?<%= requiredParam %>" class="btn btn-primary btn-sm"> Edit </a>
+                                                        <a href="../../app/http/Handler/TransactionCancelation.jsp?<%= requiredParam %>" class="btn btn-danger btn-sm"> Delete </a>
+                                                <%
+                                                    }
+                                                %>
+                                            </td>
+                                        </tr>
+                                <%
+                                    }
+                                %>
                                 </tbody>
                             </table>
                         </div>

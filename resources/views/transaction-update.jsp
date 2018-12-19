@@ -1,5 +1,17 @@
 <%@ include file = "../../config/importer/Importer.jsp" %>
 <%@ include file = "../../app/http/Middleware/RedirectIfNotAdmin.jsp" %>
+<%@ include file = "../../app/http/Controller/TransactionController.jsp" %>
+
+<%
+    TicketController ticketController = new TicketController();
+    TransactionController transactionController = new TransactionController(auth);
+    
+    String invoiceNumber = request.getParameter("invoice_number");
+
+    Transaction transaction = transactionController.getTransactionByInvoiceNumber(invoiceNumber);
+
+    String requiredParam = "id=" + transaction.id + "&invoice_number=" + transaction.invoiceNumber;
+%>
 
 <!doctype html>
 <html lang="en">
@@ -41,7 +53,30 @@
                     <div>
                         <form class="box-form">
                             <div class="row">
-                                <span class="badge badge-warning"> INV/20181131/105 </span>
+                                <span class="badge badge-primary"> <%= invoiceNumber %> </span>
+                                <%
+                                    if (transaction.status.equalsIgnoreCase("Approved")) {
+                                %>
+                                        <span class="badge badge-success ml-2"> Approved </span>
+                                <%
+                                    } else if (transaction.status.equalsIgnoreCase("Rejected")) {
+                                %>
+                                        <span class="badge badge-danger ml-2"> Rejected </span>
+                                <%
+                                    } else if (transaction.status.equalsIgnoreCase("Canceled")) {
+                                %>
+                                        <span class="badge badge-danger ml-2"> Canceled </span>
+                                <%
+                                    } else if (transaction.status.equalsIgnoreCase("Pending")) {
+                                %>
+                                        <span class="badge badge-warning ml-2"> Pending </span>
+                                <%
+                                    } else {
+                                %>
+                                        <span class="badge badge-secondary"> No Status </span>
+                                <%
+                                    }
+                                %>
                             </div>
                             <div class="row mt-2">
                                 <div class="table-responsive col-12">
@@ -51,20 +86,27 @@
                                             <th>Person Title</th>
                                             <th>Person Name</th>
                                             <th>Person Nasionality</th>
-                                            <th>Ticket</th>
-                                            <th> Action </th>
+                                            <th>Action</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td>@mbo</td>
-                                            <td>@mbo</td>
-                                            <td>@mbo</td>
-                                            <td>@mbo</td>
-                                            <td>
-                                                <a href="javascript:;" class="btn btn-danger btn-sm"> Delete </a>
-                                            </td>
-                                        </tr>
+                                        <%
+                                            ArrayList<TransactionDetail> details = transactionController.getTransactionDetials(transaction.id + "");
+
+                                            for (TransactionDetail d : details) {
+                                                String requiredParam2 = "id=" + d.id + "&transaction_id=" + transaction.id;
+                                        %>
+                                                <tr>
+                                                    <td> <%= d.personalInformation.title %> </td>
+                                                    <td> <%= d.personalInformation.name %> </td>
+                                                    <td> <%= d.personalInformation.nasionality %> </td>
+                                                    <td>
+                                                        <a href="../../app/http/Handler/TransactionDetailDeletion.jsp?<%= requiredParam2 %>" class="btn btn-danger btn-sm"> Delete </a>
+                                                    </td>
+                                                </tr>
+                                        <%
+                                            }
+                                        %>
                                         </tbody>
                                     </table>
                                 </div>
