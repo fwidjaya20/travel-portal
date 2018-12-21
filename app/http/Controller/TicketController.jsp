@@ -56,10 +56,19 @@ public class TicketController {
 		}
 	}
 
-	public ArrayList<Ticket> filterTicket(String from, String to, String depature_date, String passengers) {
+	public ArrayList<Ticket> filterTicket(String from, String to, String depature_date, String passengers, String paginatePage) {
 		ArrayList<Ticket> tickets = new ArrayList<Ticket>();
 
+		int itemPerPage = 5;
+		int currentPage = 0;
+
 		String QUERY = "SELECT * FROM tickets WHERE from_city='"+from+"' AND to_city='"+to+"' AND depature_date='"+depature_date+"' AND available>='"+passengers+"'";
+
+		if (!paginatePage.isEmpty()) {
+			currentPage = Integer.parseInt(paginatePage) * itemPerPage;
+
+			QUERY += " LIMIT " + currentPage + "," + itemPerPage;
+		}
 
 		try {
 			ResultSet rs = db.st.executeQuery(QUERY);

@@ -184,6 +184,18 @@ public class TransactionController {
 		return transactions;
 	}
 
+	public String getOrderStatusByInvoiceNumber(String invoiceNumber) {
+		Transaction transaction = this.getTransactionByInvoiceNumber(invoiceNumber);
+
+		return transaction.status;
+	}
+
+	public ArrayList<TransactionDetail> trackOrderByInvoiceNumber(String invoiceNumber) {
+		Transaction currentTransaction = this.getTransactionByInvoiceNumber(invoiceNumber);
+
+		return this.getTransactionDetials(currentTransaction.id + "");
+	}
+
 	/**
 	 * Store to Cart 
 	 */

@@ -11,9 +11,17 @@
     String depature_date = request.getParameter("depature_date");
     String passenger = request.getParameter("passengers");
     String cabin_class = request.getParameter("cabin_class");
+    
+    String optParam = request.getParameter("page");
 
-    ArrayList<Ticket> tickets = ticketController.filterTicket(from, to, depature_date, passenger);
+    ArrayList<Ticket> tickets = ticketController.filterTicket(from, to, depature_date, passenger, "");
 
+    int totalRows = tickets.size();
+    int totalPerPage = 5;
+
+    tickets = ticketController.filterTicket(from, to, depature_date, passenger, (optParam != null) ? optParam : "0");
+
+    String defaultParam = "?from="+from+"&to="+to+"&depature_date="+depature_date+"&passengers="+passenger+"&cabin_class="+cabin_class;
     String requiredParam = "passengers=" + passenger + "&cabin_class=" + cabin_class;
 %>
 
@@ -89,6 +97,21 @@
                         </div>
             <%
                     }
+            %>
+                    <nav class="d-flex justify-content-center mt-3">
+                        <ul class="pagination">
+                            <%
+                                int totalPage = (int)Math.ceil((double)totalRows / totalPerPage );
+
+                                for (int i = 0; i < totalPage; i++) {
+                            %>
+                                    <li class="page-item"><a class="page-link" href="<%= defaultParam %>&page=<%= i %>"><%= (i+1) %></a></li>
+                            <%
+                                }
+                            %>
+                        </ul>
+                    </nav>
+            <%
                 }
             %>
         </section>
